@@ -1,0 +1,221 @@
+﻿main.container-fluid {
+    padding: 0px;
+}
+
+.pos {
+    touch-action: manipulation;
+}
+
+.pos-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    padding: 0px;
+    background-color: #ee7725;
+    background-color: var(--brand-color);
+    box-shadow: 0px 2px 2px #444;
+}
+
+    .pos-header .btn {
+        border-radius: 0px;
+        border: 0px;
+        padding: 16px;
+    }
+
+    .pos-header .view-cart {
+        float: right;
+    }
+
+    .pos-header .cart-total {
+        padding: 16px;
+        font-size: 18px;
+        line-height: 1.33333;
+        color: #fff;
+        float: right;
+    }
+
+.pos-body {
+    padding: 76px 16px 16px;
+}
+
+    .pos-body > .pos-body-grid {
+        margin: -16px;
+    }
+
+.pos-button {
+    color: white;
+    position: relative;
+    margin-bottom: 30px;
+    border: 4px solid rgba(0,0,0,0);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+    .pos-button .pos-icon {
+        background-color: #353535;
+        text-align: center;
+        height: 160px;
+        padding: 10px;
+    }
+
+    .pos-button .price {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: inline;
+        padding: 0.2em 0.5em 0.3em;
+        font-size: 115%;
+        font-weight: bold;
+        border-radius: 0.25em;
+        background-color: #ffffff;
+        color: #353535;
+        box-shadow: 0px 0px 4px black;
+    }
+
+    .pos-button .pos-icon img {
+        height: 100%;
+        max-width: 100%;
+        border-radius: 8px;
+        box-shadow: 2px 2px 2px #222222;
+    }
+
+    .pos-button .title {
+        background-color: #454545;
+        font-size: 1.6em;
+        padding: 0px 16px 0px 16px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-align: center;
+    }
+
+    .pos-button .pos-add-button {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        font-size: 1.6em;
+        text-align: center;
+        color: white;
+        background-color: #ee7725;
+        background-color: var(--brand-color);
+    }
+
+
+.pos-cart .pos-body > .pos-body-grid {
+    margin-bottom: 0px;
+}
+
+.pos-cart .pos-table-items .col-quantity,
+.pos-cart .pos-table-items .col-price,
+.pos-cart .pos-table-items .col-extended-price {
+    text-align: right;
+}
+
+.pos-cart .pos-table-items .col-remove {
+    text-align: center;
+}
+
+.pos-cart .customer-container {
+    text-align: right;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.pos-cart .pay-container {
+    text-align: right;
+    margin-top: 20px;
+}
+    .pos-cart .pay-container > a {
+        font-size: 24px;
+    }
+
+table.pos-table-items > tbody > tr > td {
+    line-height: 2.1;
+}
+.pos-table-items .col-remove > a {
+    display: block;
+}
+
+.pos-table-items .col-quantity .group {
+    float: right;
+}
+    .pos-table-items .col-quantity .group > * {
+        border-color: #c2b8ab;
+        color: inherit;
+        float: left;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 0;
+    }
+        .pos-table-items .col-quantity .group > *:first-child {
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+            border-right: 0;
+        }
+        .pos-table-items .col-quantity .group > *:last-child {
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            border-left: 0;
+        }
+    .pos-table-items .col-quantity .group > *.btn:hover {
+        background-color: rgba(0,0,0,0.05);
+    }
+
+
+.pos-pay .pos-body .amounts {
+    font-size: 28px;
+}
+    .pos-pay .pos-body .amounts table {
+        margin: auto;
+        text-align: right;
+    }
+        .pos-pay .pos-body .amounts table > tbody > tr > td:first-child {
+            font-weight: bold;
+            text-align: right;
+            padding-right: 12px;
+        }
+
+.pos-pay .pos-body .quick-amounts {
+    text-align: center;
+    margin-top: 12px;
+}
+    .pos-pay .pos-body .quick-amounts > a {
+        margin-bottom: 8px;
+        margin-left: 4px;
+        font-size: 18px;
+    }
+        .pos-pay .pos-body .quick-amounts > a:first-child {
+            margin-left: 0px;
+        }
+
+.pos-pay .pos-body .payment-options {
+    text-align: center;
+}
+    .pos-pay .pos-body .payment-options .btn-group .btn {
+        font-size: 18px;
+    }
+
+
+/* Receipt */
+.pos-receipt-summary {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.pos-receipt-buttons {
+    margin-top: 40px;
+}
+
+    .pos-receipt-buttons a {
+        display: block;
+        width: 75%;
+        margin: 0 auto 20px;
+        font-size: 20px;
+        padding: 20px;
+        overflow-wrap: break-word;
+        white-space: normal;
+    }

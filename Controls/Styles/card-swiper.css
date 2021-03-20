@@ -1,0 +1,10 @@
+﻿.card-swiper {
+    text-align: center;
+}
+    .card-swiper .supported-cards > i {
+        margin-right: 4px;
+    }
+    .card-swiper > img {
+        max-width: 100%;
+        margin: auto;
+    }

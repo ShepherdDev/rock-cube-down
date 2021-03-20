@@ -1,0 +1,32 @@
+﻿.kiosk-person-search .keyboard-container {
+    text-align: center;
+}
+
+.kiosk-person-search .person-search-results .person-result {
+    height: 150px;
+    cursor: pointer;
+}
+
+.kiosk-person-search .person-search-results .person-result:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.kiosk-person-search .person-search-results .person-image {
+    float: left;
+    margin-right: 8px;
+    width: 75px;
+    height: 75px;
+}
+
+    .kiosk-person-search .person-search-results .person-image img {
+        max-width: 75px;
+        max-height: 75px;
+    }
+
+.kiosk-person-search .person-search-results .person-details {
+    padding-left: 85px;
+}
+
+    .kiosk-person-search .person-search-results .person-details > div > span:first-child {
+        font-weight: bold;
+    }

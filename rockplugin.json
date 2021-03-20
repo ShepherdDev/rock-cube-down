@@ -1,0 +1,6 @@
+{
+  "Name": "Cube Down POS",
+  "Organization": "Shepherd Church",
+  "ProjectFile": "com.shepherdchurch.CubeDown.csproj",
+  "PluginPath": "Plugins\\com_shepherdchurch\\CubeDown"
+}

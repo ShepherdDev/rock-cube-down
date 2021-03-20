@@ -1,0 +1,152 @@
+﻿<style>
+main.container-fluid {
+	padding: 0px;
+}
+body {
+  background-color: #eee !important;
+ }
+.receipt {
+	margin: auto;
+	background-color: #eee;
+}
+@media only screen and (min-width: 992px) {
+  .receipt {
+    max-width: 480px;
+  }
+}
+.receipt .header {
+	background-color: #ee7725;
+	background-color: var(--brand-color);
+	text-align: center;
+	padding: 30px 15px;
+	color: #fff;
+}
+.receipt .header img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin: auto;
+}
+
+.receipt .table > tbody > tr > td {
+	border: 0px;
+}
+
+.receipt hr {
+	margin: 8px 0px;
+}
+
+.receipt .body {
+	padding: 0px 12px 12px;
+}
+
+.receipt .payments .table > tbody > tr > td {
+	color: #888;
+	font-size: 14px;
+}
+
+.receipt .location {
+  text-align: center;
+}
+</style>
+
+<div class="receipt">
+	<div class="header">
+		<img src="{{ 'Global' | Attribute:'PublicApplicationRoot' }}{{ 'Global' | Attribute:'EmailHeaderLogo' }}">
+		<h3>{{ 'Global' | Attribute:'OrganizationName' }}</h3>
+	</div>
+	
+	<div class="body">
+		<h5 class="text-center">Receipt #{{ Cart.ReceiptCode }}</h5>
+		<h1 class="text-center margin-b-lg">{{ Cart.Total | FormatAsCurrency }}</h1>
+
+		<hr />
+
+		<table class="table table-condensed item-list">
+			<tbody>
+			{% for item in Cart.Items %}
+				<tr>
+					<td>
+						{{ item.Name }}
+						{% if item.Quantity > 1 %} * {{ item.Quantity }}{% endif %}
+					</td>
+					<td class="text-right">
+						{{ item.ExtendedPrice | FormatAsCurrency }}
+					</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+
+		<hr />
+
+		<table class="table table-condensed subtotal">
+			<tbody>
+				<tr>
+					<td>Subtotal</td>
+					<td class="text-right">
+						{{ Cart.Subtotal | FormatAsCurrency }}
+					</td>
+				</tr>
+
+				<tr>
+					<td>Tax ({{ Cart.TaxRate | Format:'0.00' }}%)</td>
+					<td class="text-right">
+						{{ Cart.Tax | FormatAsCurrency }}
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<hr />
+
+		<table class="table table-condensed total">
+			<tbody>
+				<tr>
+					<td>Total</td>
+					<td class="text-right">
+						{{ Cart.Total | FormatAsCurrency }}
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="payments">
+		{% for payment in Payments %}
+			<hr />
+
+			<table class="table table-condensed">
+				<tbody>
+					<tr>
+						<td>
+							{{ payment.FinancialPaymentDetail.CurrencyTypeValue.Value }}
+							<br />
+							{% if payment.FinancialPaymentDetail.CreditCardTypeValue != null %}
+								{{ payment.FinancialPaymentDetail.CreditCardTypeValue.Value }}
+							{% endif %}
+						</td>
+						<td class="text-right">
+							{{ payment.TransactionDateTime }}
+							<br />
+							{{ payment.TransactionCode }}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		{% endfor %}
+		</div>
+
+    <hr />
+    
+    <div class="location">
+      {{ 'Global' | Attribute:'OrganizationName' }}<br />
+      {{ 'Global' | Attribute:'OrganizationAddress','FormattedHtmlAddress' }}<br />
+      <a href="{{ 'Global' | Attribute:'OrganizationWebsite' }}">
+        {{ 'Global' | Attribute:'OrganizationWebsite' }}
+      </a><br />
+      <a href="tel:{{ 'Global' | Attribute:'OrganizationPhone' }}">
+        {{ 'Global' | Attribute:'OrganizationPhone' }}
+      </a>
+    </div>
+	</div>
+</div>

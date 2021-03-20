@@ -1,0 +1,32 @@
+﻿<div class="row">
+{% for item in Items %}
+    {% assign imageGuid = item | Attribute:"CubeDown.Image","RawValue" %}
+    <div class="col-lg-3 col-md-3 col-sm-4">
+        <div class="pos-button clearfix">
+            <div class="pos-icon">
+                {% if imageGuid != "" %}
+                    <img src="/GetImage.ashx?Guid={{ imageGuid }}&max_width=200&max_height=200" />
+                {% else %}
+                    <img src="/Assets/Images/no-picture.svg" />
+                {% endif %}
+            </div>
+            <div class="price">{{ item | Attribute:"CubeDown.Price" | AsDecimal | FormatAsCurrency }}</div>
+            <div class="title">{{ item.Title }}</div>
+            <a href="#" class="pos-add-button" onclick="{{ item.Id | Postback:"AddToCart" }}">Add</a>
+        </div>
+    </div>
+{% endfor %}
+{% if AllowCustomItems == true %}
+    <div class="col-lg-3 col-md-3 col-sm-4">
+        <div class="pos-button clearfix">
+          <div class="pos-icon">
+            <svg style="max-width: 100%; max-height: 100%; fill: var(--brand-color); stroke: black;" viewbox="0 0 165 312">
+              <path d="m72.776093,1.25966l0,39.896701c-38.467422,2.855968 -72.248383,22.342144 -70.264132,65.995678c2.03656,44.804474 56.009742,52.954071 56.009711,52.954071c0,0 5.860012,0.05542 14.254421,0.99231l0,75.965912c-3.115349,-0.257111 -6.247711,-0.624512 -9.355919,-1.086792c-36.510984,-0.599701 -59.884424,-20.885498 -59.884424,-20.885498c-2.03656,0 -1.02379,13.234619 -1.02379,28.508881c14.485021,12.674408 53.725532,17.093231 70.264132,18.097626l0,48.087097l16.286316,1.023804l0,-49.205414c30.973572,-2.376617 73.545654,-17.302002 75.351624,-59.742645c2.014404,-47.338348 -47.798676,-62.055206 -75.351624,-66.846222l0,-70.736694c32.169739,0.934418 59.065369,17.420349 59.065369,17.420349l1.023773,-31.564541c0,0 -26.423607,-8.793442 -60.089142,-9.371693l0,-39.502928l-16.286316,0zm0,63.932357l0,67.287262c-14.900272,-2.926056 -38.397522,-10.881172 -39.707653,-32.446556c-0.844379,-13.89872 10.200729,-30.655609 39.707653,-34.840706zm16.286316,98.536774c21.078522,4.563629 44.958282,14.873444 42.779053,38.132599c-2.644257,24.64856 -20.937439,33.941406 -42.779053,35.407715l0,-73.540314z" stroke-miterlimit="4" stroke-width="2.520122" fill-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="title">{{ CustomItemName }}</div>
+            <a href="#" class="pos-add-button" onclick="{{ '' | Postback:"AddCustomItem" }}">Add</a>
+        </div>
+    </div>
+{% endif %}
+</div>
